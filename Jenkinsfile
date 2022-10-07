@@ -1,5 +1,4 @@
-node {
-    def myScript =  load "script.groovy"
+
 
 pipeline {
     agent any
@@ -17,6 +16,7 @@ pipeline {
     stages {
         stage('got to first stage'){
             steps{
+                echo "_______________________________________________________________________"
                 echo "first stage reached you can use sh \"cat <filepath>\"  to display contents of file"
 
                 withCredentials([usernamePassword(credentialsId:'github-cred', usernameVariable: 'USER', passwordVariable: 'PWD' )]){
@@ -34,6 +34,8 @@ pipeline {
 
         stage('build') {
             steps{
+
+            echo "_______________________________________________________________________"
             echo 'Building code'
             echo "version set in envVar: ${NEW_VERSION}"
             }
@@ -47,6 +49,7 @@ pipeline {
                 }
             }
             steps{
+            echo "_______________________________________________________________________"
             echo 'params is set to excute test : testing code'
             echo "version is set in params to: ${param.VERSION}"
             }
@@ -54,6 +57,7 @@ pipeline {
         }
         stage('deploy') {
            steps {
+            echo "_______________________________________________________________________"
             echo 'deploying code'
             echo "tested version:${param.VERSION}, builded version: ${NEW_VERSION}"
             }
@@ -62,8 +66,8 @@ pipeline {
     }
     post {
         always{
+            echo "_______________________________________________________________________"
             echo 'goodbye'
         }
     }
-}
 }
