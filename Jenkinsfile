@@ -1,3 +1,5 @@
+def myScript =  load "script.groovy"
+
 pipeline {
     agent any
 
@@ -32,7 +34,7 @@ pipeline {
         stage('build') {
             steps{
             echo 'Building code'
-            echo "version: ${NEW_VERSION}"
+            echo "version set in envVar: ${NEW_VERSION}"
             }
 
         }
@@ -44,15 +46,15 @@ pipeline {
                 }
             }
             steps{
-            echo 'testing code'
-            echo "version: ${NEW_VERSION}"
+            echo 'params is set to excute test : testing code'
+            echo "version is set in params to: ${param.VERSION}"
             }
 
         }
         stage('deploy') {
            steps {
             echo 'deploying code'
-            echo "version: ${NEW_VERSION}"
+            echo "tested version:${param.VERSION}, builded version: ${NEW_VERSION}"
             }
 
         }
