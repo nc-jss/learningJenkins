@@ -6,18 +6,24 @@ pipeline {
     }
     stages {
         stage('build') {
+            steps{
             echo 'Building code'
             echo "version: ${NEW_VERSION}"
+            }
 
         }
         stage('test') {
+            steps{
             echo 'testing code'
             echo "version: ${NEW_VERSION}"
+            }
 
         }
         stage('deploy') {
+           steps {
             echo 'deploying code'
             echo "version: ${NEW_VERSION}"
+            }
 
         }
     }
