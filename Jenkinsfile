@@ -20,7 +20,6 @@ pipeline {
                    sh " echo \"${USER}:${PWD}\" "
                 }
                 echo "trying to load a script"
-                aGroovyscript = load "script.groovy"
                 script{
                     def aGroovyscript = load "script.groovy"
                     echo "trying to execute a function"
