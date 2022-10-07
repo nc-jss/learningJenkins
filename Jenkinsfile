@@ -1,4 +1,5 @@
-def myScript =  load "script.groovy"
+node {
+    def myScript =  load "script.groovy"
 
 pipeline {
     agent any
@@ -64,4 +65,5 @@ pipeline {
             echo 'goodbye'
         }
     }
+}
 }
