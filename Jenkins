@@ -5,6 +5,13 @@ pipeline {
         NEW_VERSION = '1.3.0'
     }
     stages {
+        stage('got to first stage'){
+            steps{
+                echo "first stage reached you can use sh \"cat <filepath>\" "
+            }
+        }
+
+
         stage('build') {
             steps{
             echo 'Building code'
