@@ -52,7 +52,7 @@ pipeline {
             steps{
                 echo "_______________________________________________________________________"
                 echo 'params is set to excute test : testing code'
-                echo "version is set in params to: ${param.VERSION}"
+                echo "version is set in params to: ${params.VERSION}"
             }
 
         }
@@ -60,7 +60,7 @@ pipeline {
            steps {
             echo "_______________________________________________________________________"
             echo 'deploying code'
-            echo "tested version:${param.VERSION}, builded version: ${NEW_VERSION}"
+            echo "tested version:${params.VERSION}, builded version: ${NEW_VERSION}"
             }
 
         }
