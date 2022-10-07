@@ -1,5 +1,3 @@
-def aGroovyscript
-
 pipeline {
     agent any
 
@@ -24,6 +22,7 @@ pipeline {
                 echo "trying to load a script"
                 aGroovyscript = load "script.groovy"
                 script{
+                    def aGroovyscript = load "script.groovy"
                     echo "trying to execute a function"
                     aGroovyscript.myfunction()
                 }
@@ -38,6 +37,7 @@ pipeline {
             }
 
         }
+
         stage('test') {
             when{
                 expression{
