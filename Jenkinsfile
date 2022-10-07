@@ -22,6 +22,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId:'github-cred', usernameVariable: 'USER', passwordVariable: 'PWD' )]){
                    sh " echo \"${USER}:${PWD}\" "
                 }
+
                 echo "trying to load a script"
                 script{
                     def aGroovyscript = load "script.groovy"
@@ -34,9 +35,9 @@ pipeline {
 
         stage('build') {
             steps{
-
             echo "_______________________________________________________________________"
             echo 'Building code'
+
             echo "version set in envVar: ${NEW_VERSION}"
             }
 
@@ -49,9 +50,9 @@ pipeline {
                 }
             }
             steps{
-            echo "_______________________________________________________________________"
-            echo 'params is set to excute test : testing code'
-            echo "version is set in params to: ${param.VERSION}"
+                echo "_______________________________________________________________________"
+                echo 'params is set to excute test : testing code'
+                echo "version is set in params to: ${param.VERSION}"
             }
 
         }
