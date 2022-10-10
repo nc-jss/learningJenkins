@@ -1,7 +1,9 @@
 
 
 pipeline {
-    agent any
+    agent {
+        docker {label alpine}
+    }
 
     parameters {
         // string(name: 'VERSION', defaultValue:'', description:'version to deploy on product')
@@ -15,6 +17,7 @@ pipeline {
     }
     stages {
         stage('got to first stage'){
+
             steps{
                 echo "_______________________________________________________________________"
                 echo "first stage reached you can use sh \"cat <filepath>\"  to display contents of file"
@@ -45,6 +48,7 @@ pipeline {
 
         stage('test') {
             when{
+                
                 expression{
                     params.executeTests == true
                 }
@@ -57,6 +61,10 @@ pipeline {
 
         }
         stage('deploy') {
+            options {
+                timeout(time:2,unit:"MINUTES")
+            }
+
            steps {
             echo "_______________________________________________________________________"
             echo 'deploying code'
@@ -72,3 +80,20 @@ pipeline {
         }
     }
 }
+
+//jenkinspipelineunit
+//test and mock the pipeline 
+//mocking sh
+//execute pipeline in jenkinsShell
+
+
+//Jenkins unit test Harness
+//integration testing
+
+//Jenkinsfile runner
+//execute pipeline in cmd prompt at a function
+//has a dockerimage: docker run --rm -v $(pwd)/jenkinsfile:/workspace/jenkinsfile jenkins/jenkinsfile-runner
+
+//Read jenkins.io/doc/book/pipeline/pipeline-best-practice
+//all code is run on jenkins master
+
