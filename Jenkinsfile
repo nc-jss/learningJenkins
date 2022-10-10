@@ -1,9 +1,7 @@
 
 
 pipeline {
-    agent {
-        docker {label alpine}
-    }
+    agent any
 
     parameters {
         // string(name: 'VERSION', defaultValue:'', description:'version to deploy on product')
@@ -17,6 +15,7 @@ pipeline {
     }
     stages {
         stage('got to first stage'){
+
 
             steps{
                 echo "_______________________________________________________________________"
@@ -77,6 +76,7 @@ pipeline {
         always{
             echo "_______________________________________________________________________"
             echo 'goodbye'
+            cleanWs()
         }
     }
 }
