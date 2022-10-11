@@ -16,5 +16,5 @@ ENV PORT 80
 EXPOSE $PORT
 
 # executes when docker run is called
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
 
