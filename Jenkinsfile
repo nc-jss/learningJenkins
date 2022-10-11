@@ -2,11 +2,7 @@
 
 pipeline {
     agent {
-        dockerfile {
-            label "docker"
-            
-            //args "-v tmp:/tmp"
-        }
+         label "docker" 
     }
 
     parameters {
