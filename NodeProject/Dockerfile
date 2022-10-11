@@ -1,20 +1,20 @@
-FROM node:14
+FROM alpine/ansible
 
-# everything is executed from the workdir
-WORKDIR /app
+# # everything is executed from the workdir
+# WORKDIR /app
 
-COPY package.json /app
+# COPY package.json /app
 
-# install all dependencies during build
-# RUN npm install
+# # install all dependencies during build
+# # RUN npm install
 
-COPY . .
+# COPY . .
 
-ENV PORT 80
+# ENV PORT 80
 
 
-EXPOSE $PORT
+# EXPOSE $PORT
 
-# executes when docker run is called
-# CMD ["npm", "start"]
-
+# # executes when docker run is called
+# # CMD ["npm", "start"]
+RUN echo "hello"
