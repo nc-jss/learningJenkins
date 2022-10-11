@@ -3,7 +3,7 @@
 pipeline {
     agent {
         dockerfile {
-            //label "pipeline"
+            label "docker"
             
             //args "-v tmp:/tmp"
         }
