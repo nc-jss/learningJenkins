@@ -21,9 +21,9 @@ pipeline {
                 echo "_______________________________________________________________________"
                 echo "first stage reached you can use sh \"cat <filepath>\"  to display contents of file"
 
-                withCredentials([usernamePassword(credentialsId:'github-cred', usernameVariable: 'USER', passwordVariable: 'PWD' )]){
-                   sh " echo \"${USER}:${PWD}\" "
-                }
+                // withCredentials([usernamePassword(credentialsId:'github-cred', usernameVariable: 'USER', passwordVariable: 'PWD' )]){
+                //    sh " echo \"${USER}:${PWD}\" "
+                // }
 
                 echo "trying to load a script"
                 script{
