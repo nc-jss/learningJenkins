@@ -1,10 +1,7 @@
 
 
 pipeline {
-    agent {
-                docker { image 'node:16.13.1-alpine' }
-
-    }
+    agent any
 
     parameters {
         // string(name: 'VERSION', defaultValue:'', description:'version to deploy on product')
