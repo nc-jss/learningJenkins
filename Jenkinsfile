@@ -1,7 +1,11 @@
 
 
 pipeline {
-    agent any
+    agent {
+        docker{
+         image "bsgrd/jenkins-agent:0.0.4"
+        }
+    }
 
     parameters {
         // string(name: 'VERSION', defaultValue:'', description:'version to deploy on product')
@@ -21,9 +25,9 @@ pipeline {
                 echo "_______________________________________________________________________"
                 echo "first stage reached you can use sh \"cat <filepath>\"  to display contents of file"
 
-                // withCredentials([usernamePassword(credentialsId:'github-cred', usernameVariable: 'USER', passwordVariable: 'PWD' )]){
-                //    sh " echo \"${USER}:${PWD}\" "
-                // }
+                withCredentials([usernamePassword(credentialsId:'github-cred', usernameVariable: 'USER', passwordVariable: 'PWD' )]){
+                   sh " echo \"${USER}:${PWD}\" "
+                }
 
                 echo "trying to load a script"
                 script{
