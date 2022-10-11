@@ -1,7 +1,12 @@
 
 
 pipeline {
-    agent any
+    agent {
+        docker{
+            image "alpine"
+            args "-v tmp:/tmp"
+        }
+    }
 
     parameters {
         // string(name: 'VERSION', defaultValue:'', description:'version to deploy on product')
