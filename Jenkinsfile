@@ -2,8 +2,9 @@
 
 pipeline {
     agent {
-        docker {
-            image "alpine"
+        dockerfile {
+            label "docker"
+            
             //args "-v tmp:/tmp"
         }
     }
