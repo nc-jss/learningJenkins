@@ -11,3 +11,12 @@
 
 ## 4 get admin activation password by looking in the logs
     docker logs jenkins_with_docker
+
+## 5 install standard plugins 
+
+## 6 install aditional plugins
+    Manage Jenkins >> Manage Plugins >> Available >> search Docker
+    install: Docker and Docker pipeline
+    restart Jenkins
+
+

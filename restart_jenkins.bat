@@ -12,6 +12,3 @@ set message= echo enter following user and password ^& echo   admin ^& echo get 
 ::call GitBash kubectl get secret jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 -d
 
 ::call kubectl port-forward svc/jenkins 8080:8080
-
-
-
